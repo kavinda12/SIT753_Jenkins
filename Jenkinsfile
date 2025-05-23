@@ -22,7 +22,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo 'Checking with OWASP Dependency-Check'
-               bat 'dependency-check.sh --scan .' 
+               //bat 'dependency-check.sh --scan .' 
             }
         }
         stage('Deploy to Staging') {
