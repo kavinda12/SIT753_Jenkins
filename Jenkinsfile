@@ -10,7 +10,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 echo 'Running JUnit tests'
-                /bat 'mvn test'  // Uncomment for real projects
+                bat 'mvn test'  // Uncomment for real projects
             }
         }
         stage('Code Analysis') {
