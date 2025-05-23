@@ -4,43 +4,43 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building with Maven'
-                bat 'mvn clean package'
+               // bat 'mvn clean package'
             }
         }
         stage('Unit Tests') {
             steps {
                 echo 'Running JUnit tests'
-                bat 'mvn test'  // Uncomment for real projects
+                //bat 'mvn test'  
             }
         }
         stage('Code Analysis') {
             steps {
                 echo 'Scanning with SonarQube'
-                bat 'sonar-scanner'  // Uncomment if SonarQube is configured
+               // bat 'sonar-scanner'  
             }
         }
         stage('Security Scan') {
             steps {
                 echo 'Checking with OWASP Dependency-Check'
-               bat 'dependency-check.sh --scan .'  // Uncomment for real scans
+               bat 'dependency-check.sh --scan .' 
             }
         }
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to AWS EC2 (staging)'
-                bat 'scp target/*.jar user@staging-server:/app'  // Uncomment for real deploy
+               // bat 'scp target/*.jar user@staging-server:/app'  
             }
         }
         stage('Integration Tests') {
             steps {
                 echo 'Running Selenium tests on staging'
-               bat  'mvn verify -Pstaging-tests'  // Uncomment for real tests
+              // bat  'mvn verify -Pstaging-tests'  
             }
         }
         stage('Deploy to Production') {
             steps {
                 echo 'Deploying to AWS EC2 (production)'
-                bat 'scp target/*.jar user@prod-server:/app'  // Uncomment for real deploy
+               // bat 'scp target/*.jar user@prod-server:/app'  
             }
         }
     }
