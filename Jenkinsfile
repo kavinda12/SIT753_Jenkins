@@ -34,7 +34,7 @@ pipeline {
         stage('Integration Tests') {
             steps {
                 echo 'Running Selenium tests on staging'
-               bat sh 'mvn verify -Pstaging-tests'  // Uncomment for real tests
+               bat  'mvn verify -Pstaging-tests'  // Uncomment for real tests
             }
         }
         stage('Deploy to Production') {
